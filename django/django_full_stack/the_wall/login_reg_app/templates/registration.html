@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Registration</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static '/style.css' %}">
+</head>
+<body>
+    <div class='container'>
+        <div class='registraton'>
+            <h1>Registration</h1>
+            <div class="reg_form">
+                <form action="/register_user" method = "POST">
+                    {% csrf_token %}
+                    <lable for ="first_name">First Name</lable>
+                    <input type="text" id="first_name" name="first_name"><br>
+                    <lable for ="last_name">Last Name</lable>
+                    <input type="text" id="last_name" name="last_name"><br>
+                    <lable for ="email">Email</lable>
+                    <input type="text" id="email" name="email"><br>
+                    <lable for ="password">Password</lable>
+                    <input type="password" id="password" name="password"><br>
+                    <lable for ="confirm_pw">Confirm PW</lable>
+                    <input type="password" id="confirm_pw" name="confirm_pw"><br>
+                    <input type="submit" value="REGISTER">
+                </form>
+            </div>
+            <div class="login">
+                <h1>Login</h1>
+                <form action="/login" method ="POST">
+                    {% csrf_token %}
+                    <lable for ="email">Email</lable>
+                    <input type="text" id="email" name="user_email"><br>
+                    <lable for ="password">Password</lable>
+                    <input type="password" id="password" name="password_login">
+                    <input type="submit" value="LOG IN">
+                </form>
+                {% if messages %}
+                    <ul class="messages">    
+                    {% for message in messages %}    
+                        <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
+                    {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

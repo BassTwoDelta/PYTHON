@@ -1,0 +1,19 @@
+.container{
+    height: 1000px;
+    width: 1000px;
+    text-align: center;
+    background-image: url("https://rb.gy/mgfnjr");
+}
+.container h1{
+    text-shadow: 1px 2px black;
+    color: white;
+}
+
+.timeDisplay{
+    border: 2px solid white;
+    width: 700px;
+    margin-left: 150px;
+    background-color: grey;
+    font-size: 50px;
+    opacity: .5;
+}

@@ -1,0 +1,26 @@
+/* * {
+    border: 2px dotted red;
+} */
+.container{
+    height: auto;
+    width: auto;
+    display: inline-block;
+}
+th, td {
+    padding: 15px;
+    text-align: left;
+    border: 2px solid black;
+    text-align: left;
+}
+
+.head {
+    display: inline-block;
+    width: 500px;
+}
+
+input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}

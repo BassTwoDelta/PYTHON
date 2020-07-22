@@ -1,0 +1,51 @@
+/* * {
+    border: 2px solid black;
+} */
+
+.main {
+    height: 500px;
+    width: 500px;
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    height: auto;
+    width: auto;
+    text-align: center;
+    
+}
+
+table tr td{
+    width: 200px;
+    height: 25px;
+    font-family: cursive;
+}
+
+/* result.html css */
+.result{
+    border: 2px solid black;
+    width: 400px;
+}
+
+.go_back_btn button{
+    margin-left: 325px;
+    margin-bottom: 15px;
+    
+}
+
+button {
+    outline: 1px dotted;
+    outline: 5px auto blue;
+  }

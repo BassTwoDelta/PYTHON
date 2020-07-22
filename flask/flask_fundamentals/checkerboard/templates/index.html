@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkerboard</title>
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
+</head>
+<body>
+    <table>
+    {% for i in range(0, x_times): %}
+        <tr>
+            {% for j in range(0, y_times): %}
+            <td class="color{{ (i+j)%2+1 }}"></td>
+            {% endfor %}
+        </tr>
+    {% endfor %}
+    </table>
+
+</body>
+</html>

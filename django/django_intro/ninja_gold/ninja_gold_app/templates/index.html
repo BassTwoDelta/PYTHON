@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NINJA GOLD HENNY</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css'%}">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <p>Your Gold: {{ request.session.gold_count }}</p>
+        </div>
+        <div class="main">
+            <div class="box">
+                <h3>Farm</h3>
+                <p>(earns 10-20 golds)</p>
+                <form action="/process_money" method ="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="location" value="farm">
+                    <input type="submit" value="FIND GOLD!">
+                </form>
+            </div>
+            <div class="box">
+                <h3>Cave</h3>
+                <p>(earns 5-10 golds)</p>
+                <form action="/process_money" method ="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="location" value="cave">
+                    <input type="submit" value="FIND GOLD!">
+                </form>
+            </div>
+            <div class="box">
+                <h3>House</h3>
+                <p>(earns 2-5 golds)</p>
+                <form action="/process_money" method ="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="location" value="house">
+                    <input type="submit" value="FIND GOLD!">
+                </form>
+            </div>
+            <div class="box">
+                <h3>Casino</h3>
+                <p>(earns/takes 0-50 golds)</p>
+                <form action="/process_money" method ="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="location" value="casino">
+                    <input type="submit" value="FIND GOLD!">
+                </form>
+            </div>
+        </div>
+        <div class="activities">
+            <p>Activities</p>
+            <textarea class='textarea' style="width:900px;height:200px" readonly>
+                {% for activity in request.session.activity_log %}
+                {{ activity }}
+                {% endfor %}
+            </textarea>
+    </div>
+</body>
+</html>

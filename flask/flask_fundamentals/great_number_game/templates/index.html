@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Great Number Game</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h3>Welcome to the Great Number Game!</h3>
+        <p>I am thinking of a number between 1 and 100</p>
+        <p>Take a guess!</p>
+        <form action='/num_check' method="POST">
+            <input type ='text' type='submit' name="numberGuess">
+        </form>
+        <p>PRESS ENTER</p>
+    </div>
+</body>
+</html>

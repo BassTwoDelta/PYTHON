@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Item</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static '/create_list_item.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>Create a New Wish List Item</h2>
+            <a href="/logout">Logout</a>
+            <a href="/dashboard">HOME</a>
+        </div>
+        <div class="add_item">
+            <form action="/wish_items/create/add_item" method="POST">
+                {% csrf_token %}
+                <lable for ="add_item">Item/Prodcut</lable>
+                <input type="text" name="add_item"><br>
+                {% if messages %}
+                    <ul class="messages">    
+                    {% for message in messages %}    
+                        <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
+                    {% endfor %}
+                    </ul>
+                {% endif %}
+                <input type="submit" value="ADD">
+            </form>
+        </div>
+    </div>
+</body>
+</html>

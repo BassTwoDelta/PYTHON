@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Place holder for item</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static '/wish_list_item.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>{{ item.name }}</h1>
+            <a href="/dashboard">Home</a>
+            <a href="placeholder">Logout</a>
+        </div>
+        <div class="main">
+            <p>Other users who added this product/item under their wish list:</p>
+            {% if logged_in_user != item.user.id %}
+                {% for user in item.favoritors.all %}
+                <p>{{item.user.name}}</p>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

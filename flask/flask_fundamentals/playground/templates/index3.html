@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    body{
+        width: 1600px;
+        height: 1000px;
+    }
+
+    .main{
+        text-align: center;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    .box{
+        height: 300px;
+        width: 300px; 
+        border: 4px solid black;
+        display: inline-block;
+        text-align: center;
+        background-color: #9fc6f8;
+        margin: 2%;
+    }
+    </style>
+</head>
+
+<body>
+    <h1>WELCOME!! HERE ARE YOUR BOXES YOU ASKED FOR!</h1>
+    {% for x in range(0,boxes)%}
+    <div class="box" style="background-color:{{colorVar}}"></div>
+    {% endfor %}
+</body>
+</html>

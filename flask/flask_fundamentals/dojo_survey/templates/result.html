@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submitted Info Honey</title>
+    <link rel='stylesheet' href="{{ url_for('static',filename='style.css') }}">
+</head>
+<body>
+    <h1>SUBMITTED INFO:</h1>
+    <div class=result>
+        <table>
+            <tr>
+                <td>Name:</td>
+                <td>{{ result_name }}</td>
+            </tr>
+            <tr>
+                <td>Location:</td>
+                <td>{{ result_location }} </td>
+            </tr> 
+            <tr>
+                <td>Favorite Language:</td>
+                <td>{{ result_fav_lang }}</td>
+            </tr>
+            <tr>
+                <td>Comment:</td>
+                <td> {{ result_comment }}</td>
+            </tr>
+        </table>
+        <div class="go_back_btn">
+            <button onclick="goBack()">Go Back</button>
+            <script>
+                function goBack() {
+                    window.history.back();
+                }
+            </script>
+        </div>
+    </div>
+</body>
+</html>
