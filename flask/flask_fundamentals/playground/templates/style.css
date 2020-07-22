@@ -1,0 +1,26 @@
+*{
+    border: 1px dotted red;
+}
+
+body{
+    width: 1600px;
+    height: 1000px;
+}
+
+.main{
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+}
+
+.box{
+    height: 300px;
+    width: 300px; 
+    border: 4px solid black;
+    display: inline-block;
+    text-align: center;
+    background-color: #9fc6f8;
+    margin: 2%;
+}

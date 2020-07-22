@@ -1,0 +1,49 @@
+/* * {
+    border: 2px dotted red;
+} */
+.container{
+    width: 1000px;
+    height: 1000px;
+    text-align: center;
+}
+
+.too_low{
+    height: 200px;
+    width: 200px;
+    background-color: red;
+    margin-left: 400px;
+    border: 4px solid black;
+}
+
+.too_low p{
+    padding-top: 75px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+
+.too_high{
+    height: 200px;
+    width: 200px;
+    background-color: red;
+    margin-left: 400px;
+    border: 4px solid black;
+}
+
+.too_high p{
+    padding-top: 75px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+
+.winner{
+    height: 200px;
+    width: 200px;
+    background-color: green;
+    margin-left: 400px;
+    border: 4px solid black;
+}
+
+.winner p{
+    padding-top: 75px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}

@@ -1,0 +1,22 @@
+.container{
+    width: 1000px;
+    height: 1000px;
+    text-align: center;
+}
+
+.main{
+    width: 500px;
+    height:225px;
+    border: 2px solid black;
+    font-size: 30px;
+    margin-left: 250px;
+    background-color: silver;
+}
+
+.main .ran_word{
+    border: 2px solid black;
+    width: 300px;
+    margin-left: 100px;
+    vertical-align: center;
+    color: red;
+}

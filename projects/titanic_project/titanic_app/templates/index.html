@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Titanic</title>
+    {% load static %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static '/index.css' %}">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="header">
+            <img src="/static/img/titanicportsidehull.png" alt="Port Side Titanic" width="85%">
+            <h1>WELCOME TO TITANIC</h1>
+            <nav class="navbar navbar-expand-lg navbar-light" style="border: 2px solid grey;background-color:black">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav" style="text-align: center;">
+                        <a class="nav-item nav-link active" href="/" style="color: white;">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-item nav-link" href="/learn_more" style="color: white;">Learn more about Titanic</a>
+                        <a class="nav-item nav-link" href="/passenger_gen"style="color: white;">Random Passenger Generator</a>
+                        <a class="nav-item nav-link" href="#"style="color: white;">The Olympic Class Liners</a>
+                        <a class="nav-item nav-link" href="#"style="color: white;">Titanic Forum</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div class="main">
+            <div class="row">
+                <div class="col">
+                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+                            <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img class="d-block w-100" src="/static/img/Titanic-Southampton.jpeg" alt="Southampton">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="/static/img/Titanic-Seatrials.jpg" alt="Sea-Trials">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="/static/img/Boarding_Titanic.jpg" alt="Boarding Titanic">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="/static/img/departing_southampton.jpg" alt="Departing Southampton">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="/static/img/Onboard.jpeg" alt="On Board">
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src="/static/img/Sea-Trials.jpg" alt="Sea Trials">
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
+            <br>
+                <div class="col text-center">
+                    <div class="main_info">
+                        <br>
+                        <blockquote>
+                            <p>"I’ll not have so many little boats, as you call them, cluttering up my decks and putting fear into my passengers."</p>
+                            <footer>-J. Bruce Ismay, Director of the White Star Line</footer>
+                        </blockquote>
+                        <blockquote>
+                            <p>“I cannot imagine any condition which would cause a ship to founder. I cannot conceive of any vital disaster happening to this vessel. Modern shipbuilding has gone beyond that.”</p>
+                            <footer>-Captain Smith, Commander of Titanic</footer>
+                        </blockquote>
+                        <blockquote>
+                            <p>“The partly filled lifeboat standing by about 100 yards away never came back. Why on Earth they never came back is a mystery. How could any human being fail to heed those cries.”</p>
+                            <footer>-Jack B. Thayer, Titanic Survivor</footer>
+                        </blockquote>
+                        <blockquote>
+                            <p>“SOS Titanic calling. We have struck ice and require immediate assistance.”</p>
+                            <footer>Telegram of the RMS Titanic</footer>
+                        </blockquote>
+                        <blockquote>
+                            <p>“The sounds of people drowning are something that I can not describe to you, and neither can anyone else. It’s the most dreadful sound and there is a terrible silence that follows it.”</p>
+                            <footer>Eva Hart, Titanic Survivor</footer>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

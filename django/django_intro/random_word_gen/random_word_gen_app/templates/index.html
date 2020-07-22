@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Word Gen</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css'%}">
+</head>
+<body>
+    <div class="container">
+        <div class="main">
+            <p>Random Word Gen (attempt #{{ counter }})</p>
+            <p class="ran_word"> {{ random_word }}</p>
+            <input type='submit' onClick="window.location.reload();" value="Generate">
+        </div>
+        <a href="/random_word/reset">RESET COUNT</a>
+    </div>
+</body>
+</html>

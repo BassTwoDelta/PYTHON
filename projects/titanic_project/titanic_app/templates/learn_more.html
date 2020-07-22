@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RMS Titanic</title>
+    {% load static %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static '/index.css' %}">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="header">
+            <img src="/static/img/titanicportsidehull.png" alt="Port Side Titanic">
+            <h1>Learn More About Titanic</h1>
+            <nav class="navbar navbar-expand-lg" style="border: 2px solid grey;background-color:black">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-item nav-link active" href="/" style="color: white;">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" style="color: white;" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Explore the ship
+                            </a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="/learn_more/boat_deck"style="color: black;">Boat Deck</a>
+                                    <a class="dropdown-item" href="/learn_more/a_deck"style="color: black;">A-Deck</a>
+                                    <a class="dropdown-item" href="/learn_more/b_deck"style="color: black;">B-Deck</a>
+                                    <a class="dropdown-item" href="/learn_more/c_deck"style="color: black;">C-Deck</a>
+                                    <a class="dropdown-item" href="/learn_more/d_deck"style="color: black;">D-Deck</a>
+                                    <a class="dropdown-item" href="/learn_more/e_deck"style="color: black;">E-Deck</a>
+                                    <a class="dropdown-item" href="/learn_more/f_deck"style="color: black;">F-Deck</a>
+                                    <a class="dropdown-item" href="/learn_more/g_deck"style="color: black;">G-Deck</a>
+                                    <a class="dropdown-item" href="/learn_more/orlop_deck"style="color: black;">Orlop-Deck</a>
+                                    <a class="dropdown-item" href="/learn_more/tanktop"style="color: black;">Tanktop</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+                        <!-- <a class="nav-item nav-link" href="/learn_more/boat_deck"style="color: white;">Boat Deck</a>
+                        <a class="nav-item nav-link" href="/learn_more/a_deck"style="color: white;">A-Deck</a>
+                        <a class="nav-item nav-link" href="/learn_more/b_deck"style="color: white;">B-Deck</a>
+                        <a class="nav-item nav-link" href="/learn_more/c_deck"style="color: white;">C-Deck</a>
+                        <a class="nav-item nav-link" href="/learn_more/d_deck"style="color: white;">D-Deck</a>
+                        <a class="nav-item nav-link" href="/learn_more/e_deck"style="color: white;">E-Deck</a>
+                        <a class="nav-item nav-link" href="/learn_more/f_deck"style="color: white;">F-Deck</a>
+                        <a class="nav-item nav-link" href="/learn_more/g_deck"style="color: white;">G-Deck</a>
+                        <a class="nav-item nav-link" href="/learn_more/orlop_deck"style="color: white;">Orlop-Deck</a>
+                        <a class="nav-item nav-link" href="/learn_more/tanktop"style="color: white;">Tanktop</a> -->
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div class="row">
+            <div class="col text-center" style="width:80%">
+                <h1>The Story</h1>
+                <p>RMS Titanic was a British passenger liner operated by the White Star Line that sank in the North Atlantic Ocean in the early morning hours of 15 April 1912, after striking an iceberg during her maiden voyage from Southampton to New York City. Of the estimated 2,224 passengers and crew aboard, more than 1,500 died, making the sinking one of modern history's deadliest peacetime commercial marine disasters. RMS Titanic was the largest ship afloat at the time she entered service and was the second of three Olympic-class ocean liners operated by the White Star Line. She was built by the Harland and Wolff shipyard in Belfast. Thomas Andrews, chief naval architect of the shipyard at the time, died in the disaster.</p>
+
+                <p>Titanic was under the command of Captain Edward Smith, who also went down with the ship. The ocean liner carried some of the wealthiest people in the world, as well as hundreds of emigrants from Great Britain and Ireland, Scandinavia and elsewhere throughout Europe, who were seeking a new life in the United States. The first-class accommodation was designed to be the pinnacle of comfort and luxury, with a gymnasium, swimming pool, libraries, high-class restaurants, and opulent cabins. A high-powered radiotelegraph transmitter was available for sending passenger "marconigrams" and for the ship's operational use. Although Titanic had advanced safety features, such as watertight compartments and remotely activated watertight doors, it only carried enough lifeboats for 1,178 people—about half the number on board, and one third of her total capacity—due to the maritime safety regulations of those days. The ship carried 16 lifeboat davits which could lower three lifeboats each, for a total of 48 boats. However, Titanic carried only a total of 20 lifeboats, four of which were collapsible and proved hard to launch during the sinking.</p>
+                    
+                <p>After leaving Southampton on 10 April 1912, Titanic called at Cherbourg in France and Queenstown (now Cobh) in Ireland, before heading west to New York.On 14 April, four days into the crossing and about 375 miles (600 km) south of Newfoundland, she hit an iceberg at 11:40 p.m. ship's time. The collision caused the hull plates to buckle inwards along her starboard (right) side and opened five of her sixteen watertight compartments to the sea; she could only survive four flooding. Meanwhile, passengers and some crew members were evacuated in lifeboats, many of which were launched only partially loaded. A disproportionate number of men were left aboard because of a "women and children first" protocol for loading lifeboats. At 2:20 a.m., she broke apart and foundered with well over one thousand people still aboard. Just under two hours after Titanic sank, the Cunard liner RMS Carpathia arrived and brought aboard an estimated 705 survivors.</p>
+            </div>
+            <div class="col text-center">
+                <img src="/static/img/titanic_headlines.jpg">
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
