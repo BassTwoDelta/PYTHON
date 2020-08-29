@@ -9,35 +9,35 @@ def index(request):
 def learn_more(request):
     return render(request, "learn_more.html")
 
-def boat_deck(request):
-    return render(request, "boat_deck.html")
+# def boat_deck(request):
+#     return render(request, "boat_deck.html")
 
-def a_deck(request):
-    return render(request, "a_deck.html")
+# def a_deck(request):
+#     return render(request, "a_deck.html")
 
-def b_deck(request):
-    return render(request, "b_deck.html")
+# def b_deck(request):
+#     return render(request, "b_deck.html")
 
-def c_deck(request):
-    return render(request, "c_deck.html")
+# def c_deck(request):
+#     return render(request, "c_deck.html")
 
-def d_deck(request):
-    return render(request, "d_deck.html")
+# def d_deck(request):
+#     return render(request, "d_deck.html")
 
-def e_deck(request):
-    return render(request, "e_deck.html")
+# def e_deck(request):
+#     return render(request, "e_deck.html")
 
-def f_deck(request):
-    return render(request, "f_deck.html")
+# def f_deck(request):
+#     return render(request, "f_deck.html")
 
-def g_deck(request):
-    return render(request, "g_deck.html")
+# def g_deck(request):
+#     return render(request, "g_deck.html")
 
-def orlop(request):
-    return render(request, "orlop_deck.html")
+# def orlop(request):
+#     return render(request, "orlop_deck.html")
 
-def tanktop(request):
-    return render(request, "tanktop.html")
+# def tanktop(request):
+#     return render(request, "tanktop.html")
 
 def test(request): 
     return render(request, "new_text_index.html")

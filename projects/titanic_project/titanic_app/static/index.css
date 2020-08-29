@@ -1,6 +1,12 @@
 .header{
     text-align: center;
     background-color: black;
+    border-radius: 5px;
+}
+
+.navbar{
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 .header h1{
     color: white;
@@ -99,4 +105,3 @@ blockquote{
     from {opacity: .2}
     to {opacity: 1}
 }
-
