@@ -12,25 +12,31 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div class="container-fluid">
+    <div class="container">
         <div class="header">
             <img src="/static/img/titanicportsidehull.png" alt="Port Side Titanic" width="85%">
             <h1>WELCOME TO TITANIC</h1>
-            <nav class="navbar navbar-expand-lg navbar-light" style="border: 2px solid grey;background-color:black">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <nav style="border-top: 3px solid #1c0f18; border-bottom: 3px solid #1c0f18;"class="navbar navbar-expand-lg navbar-dark bg-black">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                    <div class="navbar-nav" style="text-align: center;">
-                        <a class="nav-item nav-link active" href="/" style="color: white;">Home <span class="sr-only">(current)</span></a>
-                        <a class="nav-item nav-link" href="/learn_more" style="color: white;">Learn more about Titanic</a>
-                        <a class="nav-item nav-link" href="/passenger_gen"style="color: white;">Random Passenger Generator</a>
-                        <a class="nav-item nav-link" href="#"style="color: white;">The Olympic Class Liners</a>
-                        <a class="nav-item nav-link" href="#"style="color: white;">Titanic Forum</a>
-                    </div>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/learn_more">Learn More</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/passenger_gen">Random Passenger Generator</a>
+                        </li>
+                    </ul>
                 </div>
             </nav>
         </div>
+        <br>
+        <br>
         <div class="main">
             <div class="row">
                 <div class="col">
@@ -73,10 +79,8 @@
                         </a>
                     </div>
                 </div>
-            <br>
                 <div class="col text-center">
                     <div class="main_info">
-                        <br>
                         <blockquote>
                             <p>"I’ll not have so many little boats, as you call them, cluttering up my decks and putting fear into my passengers."</p>
                             <footer>-J. Bruce Ismay, Director of the White Star Line</footer>
@@ -86,12 +90,12 @@
                             <footer>-Captain Smith, Commander of Titanic</footer>
                         </blockquote>
                         <blockquote>
-                            <p>“The partly filled lifeboat standing by about 100 yards away never came back. Why on Earth they never came back is a mystery. How could any human being fail to heed those cries.”</p>
-                            <footer>-Jack B. Thayer, Titanic Survivor</footer>
+                            <p>“SOS Titanic calling. We have struck ice and require immediate assistance.”</p>
+                            <footer>Telegram of the RMS Titanic</footer>                           
                         </blockquote>
                         <blockquote>
-                            <p>“SOS Titanic calling. We have struck ice and require immediate assistance.”</p>
-                            <footer>Telegram of the RMS Titanic</footer>
+                            <p>“The partly filled lifeboat standing by about 100 yards away never came back. Why on Earth they never came back is a mystery. How could any human being fail to heed those cries.”</p>
+                            <footer>-Jack B. Thayer, Titanic Survivor</footer>
                         </blockquote>
                         <blockquote>
                             <p>“The sounds of people drowning are something that I can not describe to you, and neither can anyone else. It’s the most dreadful sound and there is a terrible silence that follows it.”</p>

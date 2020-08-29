@@ -12,27 +12,34 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div class="container-fluid">
+    <div class="container">
         <div class="header">
-            <img src="/static/img/titanicportsidehull.png" alt="Port Side Titanic">
+            <img src="/static/img/titanicportsidehull.png" alt="Port Side Titanic" width="85%">
             <h1>{{ passenger.name }}</h1>
-            <nav class="navbar navbar-expand-lg navbar-light" style="border: 2px solid grey;background-color:black">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <nav style="border-top: 3px solid #1c0f18; border-bottom: 3px solid #1c0f18;"class="navbar navbar-expand-lg navbar-dark bg-black">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                    <div class="navbar-nav" style="text-align: center;">
-                        <a class="nav-item nav-link active" href="/" style="color: white;">Home <span class="sr-only">(current)</span></a>
-                        <a class="nav-item nav-link" href="#"style="color: white;">Learn more about Titanic</a>
-                        <a class="nav-item nav-link" href="/passenger_gen"style="color: white;">Random Passenger Generator</a>
-                        <a class="nav-item nav-link" href="#"style="color: white;">The Olympic Class Liners</a>
-                    </div>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/learn_more">Learn More</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/passenger_gen">Random Passenger Generator<span class="sr-only">(current)</span></a>
+                        </li>
+                    </ul>
                 </div>
             </nav>
         </div>
+        <br>
+        <br>
         <div class="row">
-            <div class="col">
-                <div class="card" style="width: 28rem;">
+            <div class="col" style="padding:0px;">
+                <div class="card" style="width:auto; padding:0px;">
                     <div class="card-body">
                         <h5 class="font-weight-bold mb-3">{{passenger.name}}</h5>
                         <p class="mb-0">{{ passenger.class_dept }}</p>
@@ -48,7 +55,9 @@
                             {% endif %}
                             <li class="list-group-item"><strong>Embarked:</strong> {{ passenger.joined }}</li>
                             <li class="list-group-item"><strong>Survived?:</strong> {{passenger.survived_field }}</li>
+                            {% if passenger.boat != "" %}
                             <li class="list-group-item"><strong>Lifeboat #:</strong>  {{passenger.boat}}</li>
+                            {% endif %}
                             {% if passenger.body != "" %}
                                 <li class="list-group-item"><strong>Body #(if recovered):</strong>  {{ passenger.body }}</li>
                             {% endif %}
@@ -57,112 +66,202 @@
                         <a href="{{ passenger.url }}">Learn more about {{ passenger.name }} here!</a><br><br>
                         <form method="POST" action="/passenger_gen/generate">
                             {% csrf_token %}
-                            <input type="submit" value="Generate New Passenger">
+                            <input class="btn btn-outline-secondary" type="submit" value="Generate New Passenger">
+                        </form>
                         <div class="footer" style="font-size: small;">
                             <p>Information obtained from Titanic People Database © Encyclopedia Titanica 1996-2020</p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col text-center">
             {% if passenger.class_dept == "1st Class Passenger" %}
-                <div class="public_room">
-                    <h3>First Class Public Space:</h3>
-                    <img src="/static/img/first_class/first_class_smoke_room.jpg" alt="First Class Smoke Room" width="100%"><br><br>
-                    <h5>First Class Life on Titanic:</h5>
-                    <p>The first class passengers on the Titanic were living in the lap of luxury. Some of the richest people in the world were traveling on the Titanic for her maiden voyage. This included prominent members of the upper-class that included politicians, businessmen, bankers, professional athletes, industrialists and high-ranking military personnel. Most of those on in first class were traveling with an entourage which might include one or all of the following: a nurse for the children, a maid, valet, cook, and chauffer. The first class tickets ranged enormously in price, from $150 (about $1700 today) for a simple berth, up to $4350 ($50,000) for one of the two Parlour suites... The more expensive rooms were a parlor suite and usually had a private promenade deck.</p>
-                    <p>Everyone is familiar with the breathtaking Grand Staircase with the glass dome over it, but the Titanic had many other amenities, including electricity and the wireless Marconi system. Other amenities found on the First Class deck included a Parisian Café, A La Carte Restaurant, tea gardens, reception room, verandah café, heated swimming pool, gymnasium, library, squash court, barbershop, kennel, elevators, smoking room, Turkish bath, dining saloon, reading and writing rooms, and enclosed promenade decks to walk and sit on.</p>
+                <div class="col text-center" style="border: 1px solid #e3e3e3; border-radius:5px;">
+                    <div class="public_room">
+                        <h3>First Class Public Space:</h3>
+                        <img src="/static/img/first_class/first_class_smoke_room.jpg" alt="First Class Smoke Room" width="100%"><br><br>
+                        <h5>First Class Life on Titanic:</h5>
+                        <p>The first class passengers on the Titanic were living in the lap of luxury. Some of the richest people in the world were traveling on the Titanic for her maiden voyage. This included prominent members of the upper-class that included politicians, businessmen, bankers, professional athletes, industrialists and high-ranking military personnel. Most of those on in first class were traveling with an entourage which might include one or all of the following: a nurse for the children, a maid, valet, cook, and chauffer. The first class tickets ranged enormously in price, from $150 (about $1700 today) for a simple berth, up to $4350 ($50,000) for one of the two Parlour suites... The more expensive rooms were a parlor suite and usually had a private promenade deck.</p>
+                        <p>Everyone is familiar with the breathtaking Grand Staircase with the glass dome over it, but the Titanic had many other amenities, including electricity and the wireless Marconi system. Other amenities found on the First Class deck included a Parisian Café, A La Carte Restaurant, tea gardens, reception room, verandah café, heated swimming pool, gymnasium, library, squash court, barbershop, kennel, elevators, smoking room, Turkish bath, dining saloon, reading and writing rooms, and enclosed promenade decks to walk and sit on.</p>
+                    </div>
                 </div>
-                </div>
-                <div class="col text-center">
+                <div class="col text-center" style="border: 1px solid #e3e3e3; border-radius:5px">
                     <div class="cabin_class">
                         <h3>First Class Cabin:</h3>
                         <img src="/static/img/first_class/first_class_cabin.jpg" alt="First Class Cabin" width="100%"><br><br>
                         <h5>First Class Accomdation:</h5>
                         <p>Reflecting the White Star Line's reputation for superior comfort and luxury, the RMS Titanic had extensive facilities for first-class passengers which were widely regarded as the finest of her time. In contrast to her French and German competitors, whose interiors were extravagantly decorated and heavily adorned, the Titanic emphasized comfort and subdued elegance more in the style of a British country manor or luxury hotel. Titanic's enormous size enabled her to feature unusually large rooms, all equipped with the latest technologies for comfort, hygiene, and convenience. Staterooms and public spaces recreated historic styles with a painstaking attention to detail and accuracy. There was a wide range of recreational and sporting facilities in addition which provided ample opportunity for amusement during a voyage.</p>
                     </div>
+                </div>
             {% endif %}
             {% if passenger.class_dept == "2nd Class Passenger" %}
-            <div class="public_room">
-                <h3>2nd Class Public Space:</h3>
-                <img src="/static/img/second_class/library.jpg" alt="Second Class Library" width="100%"><br><br>
-                <h5>Second Class Life on Titanic:</h5>
-                <p>The second class passengers on the Titanic were what we would consider today to be the middle class. The travelers in second class consisted of professors, authors, clergymen, and tourist. Many of these passengers would have traveled as first class on other vessels. A second class ticket at that time cost approximately 13 to 79 pounds, which would be the equivalent of $1800 today.</p>
+                <div class="col text-center" style="border: 1px solid #e3e3e3; border-radius:5px">
+                    <div class="public_room">
+                        <h3>2nd Class Public Space:</h3>
+                        <img src="/static/img/second_class/library.jpg" alt="Second Class Library" width="100%"><br><br>
+                        <h5>Second Class Life on Titanic:</h5>
+                        <p>The second class passengers on the Titanic were what we would consider today to be the middle class. The travelers in second class consisted of professors, authors, clergymen, and tourist. Many of these passengers would have traveled as first class on other vessels. A second class ticket at that time cost approximately 13 to 79 pounds, which would be the equivalent of $1800 today.</p>
 
-                <p>The entrance to the Second Class dining room was nowhere as beautiful and magnificent as the well know First Class Grand Staircase. The second class passengers did have a library and smoke room in addition to their dining hall.</p>
-                    
-                <p>In contrast to the Ten Courses First Class Passengers had for dinner, Second Class Passengers only enjoyed three courses. The first course would consist of soup, the second course was the main meal, and the third course were the desserts which were followed by coffee.</p>
-            </div>
-            </div>
-            <div class="col text-center">
-                <div class="cabin_class">
-                    <h3>2nd Class Cabin:</h3>
-                    <img src="/static/img/second_class/cabin.jpg" alt="Second Class Cabin" width="100%"><br><br>
-                    <h5>Second Class Accommodation:</h5>
-                    <p>Most of the second class accommodation on Titanic consisted of cabins with bunk-beds. Each cabin had either two beds or four and in total there was room for around 550 passengers. These cabins didn't have private bathrooms, but inside there were sinks and mirrors and the bed linen was changed every day.</p>
+                        <p>The entrance to the Second Class dining room was nowhere as beautiful and magnificent as the well know First Class Grand Staircase. The second class passengers did have a library and smoke room in addition to their dining hall.</p>
+                            
+                        <p>In contrast to the Ten Courses First Class Passengers had for dinner, Second Class Passengers only enjoyed three courses. The first course would consist of soup, the second course was the main meal, and the third course were the desserts which were followed by coffee.</p>
+                    </div>
+                </div>
+                <div class="col text-center" style="border: 1px solid #e3e3e3; border-radius:5px;">
+                    <div class="cabin_class">
+                        <h3>2nd Class Cabin:</h3>
+                        <img src="/static/img/second_class/cabin.jpg" alt="Second Class Cabin" width="100%"><br><br>
+                        <h5>Second Class Accommodation:</h5>
+                        <p>Most of the second class accommodation on Titanic consisted of cabins with bunk-beds. Each cabin had either two beds or four and in total there was room for around 550 passengers. These cabins didn't have private bathrooms, but inside there were sinks and mirrors and the bed linen was changed every day.</p>
+                    </div>
                 </div>
             {% endif %}
             {% if passenger.class_dept == "3rd Class Passenger" %}
-            <div class="public_room">
-                <h3>Third Class Public Space:</h3>
-                <img src="/static/img/third_class/general_room.jpg" alt="Third Class General Room" width="100%"><br><br>
-                <h5>Third Class Life:</h5>
-                <p>Third class was much more basic with very few facilities, but passengers still enjoyed a high level of luxury compared to other liners of the day.</p>
-                <p>The general room was where most passengers gathered, talked and socialised. There was a piano for passengers to make their own music in the evenings. There was also a male-only smoke room which was panelled and furnished in oak with teak furniture.</p>
-                <p>Third class passengers ate in their own dining room which could seat around 470 passengers in 3 sittings. The food was very simple but plentiful consisting of rice soup, biscuits, roast beef and fruit. On most other ships, third class passengers were expected to bring their own food which was supposed to last for the entire journey.</p>
-                <p>With over 1000 third class passengers on board, accommodation was basic. Cabins slept up to 10 people and were located at the noisy bottom part of the ship close to the engines. Single men and women were split up at the front and back with families in the middle. There were only two baths for everyone in third class!</p>
-            </div>
-            </div>
-            <div class="col text-center">
-                <div class="cabin_class">
-                    <h3>Third Class Cabin:</h3>
-                    <img src="/static/img/third_class/cabin.jpg" alt="Third Class Cabin"s width="100%"><br><br>
-                    <h5>Third Class Accomdation:</h5>
-                    <p>Third Class on board Titanic was noticeably more comfortable than what was offered on many of her competitors, though Third-class passengers were granted the smallest proportion of space on board and very few facilities. The White Star Line had earned a reputation for providing notably good service in Third-class, which was becoming an increasingly profitable share of the transatlantic passenger service. Technically "Steerage", the term for low-paying immigrant passengers housed in open-space dormitories, does not apply to the Titanic's Third-class passengers, all of whom were housed in private cabins of no more than 10 people.There were 84 two-berth cabins for the Third-class, and in all, 1,100 Third-class passengers could be accommodated.</p>
+                <div class="col text-center" style="border: 1px solid #e3e3e3; border-radius:5px;">
+                    <div class="public_room">
+                        <h3>Third Class Public Space:</h3>
+                        <img src="/static/img/third_class/general_room.jpg" alt="Third Class General Room" width="100%"><br><br>
+                        <h5>Third Class Life:</h5>
+                        <p>Third class was much more basic with very few facilities, but passengers still enjoyed a high level of luxury compared to other liners of the day.</p>
+                        <p>The general room was where most passengers gathered, talked and socialised. There was a piano for passengers to make their own music in the evenings. There was also a male-only smoke room which was panelled and furnished in oak with teak furniture.</p>
+                        <p>Third class passengers ate in their own dining room which could seat around 470 passengers in 3 sittings. The food was very simple but plentiful consisting of rice soup, biscuits, roast beef and fruit. On most other ships, third class passengers were expected to bring their own food which was supposed to last for the entire journey.</p>
+                        <p>With over 1000 third class passengers on board, accommodation was basic. Cabins slept up to 10 people and were located at the noisy bottom part of the ship close to the engines. Single men and women were split up at the front and back with families in the middle. There were only two baths for everyone in third class!</p>
+                    </div>
                 </div>
-            </div>
+                <div class="col text-center" style="border: 1px solid #e3e3e3; border-radius:5px;">
+                    <div class="cabin_class">
+                        <h3>Third Class Cabin:</h3>
+                        <img src="/static/img/third_class/cabin.jpg" alt="Third Class Cabin"s width="100%"><br><br>
+                        <h5>Third Class Accomdation:</h5>
+                        <p>Third Class on board Titanic was noticeably more comfortable than what was offered on many of her competitors, though Third-class passengers were granted the smallest proportion of space on board and very few facilities. The White Star Line had earned a reputation for providing notably good service in Third-class, which was becoming an increasingly profitable share of the transatlantic passenger service. Technically "Steerage", the term for low-paying immigrant passengers housed in open-space dormitories, does not apply to the Titanic's Third-class passengers, all of whom were housed in private cabins of no more than 10 people.There were 84 two-berth cabins for the Third-class, and in all, 1,100 Third-class passengers could be accommodated.</p>
+                    </div>
+                </div>
             {% endif %}
-            {% if passenger.class_dept == "Victualling Crew" %}
-            <div class="stewards">
-                <h3>Stewards on Titanic:</h3>
-                <img src="/static/img/Crew/stewards.jpeg" alt="stewards" width="100%"><br><br>
-                <img src="/static/img/Crew/marconi.jpg" alt="Marconi" width="100%">
-            </div>
-            </div>
-            <div class="col">
-                <div class="victualling_crew">
-                    <h3>Victualling Crew Distictions:</h3>
-                    <ol>
-                        <li>The Purser:  who supervised all of the Victualling Department and was the direct link between passengers and the ship's officers.</li><br>
-                        <li>Stewards:  who performed over 57 different functions in each class's dining saloon, public rooms, cabins and recreational facilities. Around 60 stewards survived</li><br>
-                        <li>Galley and kitchen staff:  including chefs, cooks, bakers, butchers, and scullions who worked in the kitchens of each class to cook the various meals for the passengers. Scullions, called dishwashers today, were responsible for washing and drying the dishes. Around 13 survived.</li><br>
-                        <li>Stewardesses and a matron  who were, along with two restaurant cashiers, the only female members of the crew; all but three of whom survived. The stewardesses' duties were similar to the male stewards', although they usually served only women passengers.</li><br>
-                        <li>Storekeepers, only two of them survived</li><br>
-                        <li>Clerks,  employed in the Purser's Office to deal with passenger's enquiries and requests (including depositing valuables for safekeeping).</li><br>
-                        <li>Radio operators who were actually employed by the Marconi Company and not directly by the White Star Line, were assigned to the Victualling Department, possibly because at the time radio communication was seen principally as a service rather than as an essential part of the ship's operation.</li><br>
-                        <li>Barbers: They were assigned to the Titanic as part of the vendor group; August H. Weikman worked in First Class, Herbert Klein in Second Class, and Arthur White for Third Class. None of them were employed by the White Star Line for all three were self-employed and worked mostly for cash tips. The White Star Line only provided their meals and living quarters. All, except for Weikman, were lost.</li><br>
-                    </ol>
+            {% if passenger.class_dept == "Victualling Crew" or passenger.class_dept == "Victualling Crew Postal Clerk" %}
+                <div class="col text-center" style="border: 1px solid #e3e3e3; border-radius:5px;">
+                    <div class="stewards">
+                        <h3>Stewards on Titanic:</h3>
+                        <img src="/static/img/Crew/stewards.jpeg" alt="stewards" width="100%"><br><br>
+                        <h3>Marconi Officers:</h3>
+                        <img src="/static/img/Crew/marconi.jpg" alt="Marconi" width="100%">
+                    </div>
                 </div>
-            </div>
+                <div class="col" style="border: 1px solid #e3e3e3; border-radius:5px;">
+                    <div class="victualling_crew">
+                        <h3>Victualling Crew Distictions:</h3>
+                        <ol>
+                            <li>The Purser:  who supervised all of the Victualling Department and was the direct link between passengers and the ship's officers.</li><br>
+                            <li>Stewards:  who performed over 57 different functions in each class's dining saloon, public rooms, cabins and recreational facilities. Around 60 stewards survived</li><br>
+                            <li>Galley and kitchen staff:  including chefs, cooks, bakers, butchers, and scullions who worked in the kitchens of each class to cook the various meals for the passengers. Scullions, called dishwashers today, were responsible for washing and drying the dishes. Around 13 survived.</li><br>
+                            <li>Stewardesses and a matron  who were, along with two restaurant cashiers, the only female members of the crew; all but three of whom survived. The stewardesses' duties were similar to the male stewards', although they usually served only women passengers.</li><br>
+                            <li>Storekeepers, only two of them survived</li><br>
+                            <li>Clerks,  employed in the Purser's Office to deal with passenger's enquiries and requests (including depositing valuables for safekeeping).</li><br>
+                            <li>Radio operators who were actually employed by the Marconi Company and not directly by the White Star Line, were assigned to the Victualling Department, possibly because at the time radio communication was seen principally as a service rather than as an essential part of the ship's operation.</li><br>
+                            <li>Barbers: They were assigned to the Titanic as part of the vendor group; August H. Weikman worked in First Class, Herbert Klein in Second Class, and Arthur White for Third Class. None of them were employed by the White Star Line for all three were self-employed and worked mostly for cash tips. The White Star Line only provided their meals and living quarters. All, except for Weikman, were lost.</li><br>
+                        </ol>
+                    </div>
+                </div>
             {% endif %}
             {% if passenger.class_dept == "Restaurant Staff" %}
-            <div class="col text-left">
-                <h3>The À la Carte Restaurant</h3>
-                <img src="/static/img/Crew/a_la_carte.jpg" alt="Restaurant" width="100%"><br><br>
-                <img src="/static/img/Crew/a_la_carte_2.jpg" alt="Restaurant" width="100%"><br><br>
-            </div>
-            </div>
-            <div class="col">
-                <div class="staff">
-                    <h3>Restaurantt Staff:</h3>
-                    <p>The À la Carte Restaurant was located on B Deck, just below the fourth funnel. It was a private concession managed by A. P. Luigi Gatti, an Italian businessman who owned two other restaurants in London, as well as the À La Carte Restaurant on the RMS Olympic. The restaurant was open from 8:00 am to 11:00 pm and was open only to First Class passengers. The staff were not paid by the White Star Line, but by Mr. Gatti himself, who was on the RMS Titanic for its maiden voyage. The restaurant was self-sufficient with its own cooks, waiters, cleanup crew, and other staff. Most of the employees were French or Italian nationals.</p>
-                    <p>Of the entire staff of 69 people, only one male clerk and two female cashiers survived. Several Titanic survivors indicated that the restaurant employees were locked in their quarters by the stewards to prevent them from rushing the lifeboats. It has never been confirmed whether this was true or not.</p>
-                    <p>Mr. Gatti had a cabin on C Deck. The Restaurant Staff was located on E Deck near the 2nd Class Staircase.</p>
+                <div class="col text-center" style="border: 1px solid #e3e3e3; border-radius:5px">
+                    <h3>The À la Carte Restaurant</h3>
+                    <img src="/static/img/Crew/a_la_carte.jpg" alt="Restaurant" width="100%"><br><br>
+                    <img src="/static/img/Crew/a_la_carte_2.jpg" alt="Restaurant" width="100%"><br><br>
                 </div>
-            </div>
+                <div class="col text-center" style="border: 1px solid #e3e3e3; border-radius:5px">
+                    <div class="staff">
+                        <h3>Restaurant Staff:</h3>
+                        <p>The À la Carte Restaurant was located on B Deck, just below the fourth funnel. It was a private concession managed by A. P. Luigi Gatti, an Italian businessman who owned two other restaurants in London, as well as the À La Carte Restaurant on the RMS Olympic. The restaurant was open from 8:00 am to 11:00 pm and was open only to First Class passengers. The staff were not paid by the White Star Line, but by Mr. Gatti himself, who was on the RMS Titanic for its maiden voyage. The restaurant was self-sufficient with its own cooks, waiters, cleanup crew, and other staff. Most of the employees were French or Italian nationals.</p>
+                        <p>Of the entire staff of 69 people, only one male clerk and two female cashiers survived. Several Titanic survivors indicated that the restaurant employees were locked in their quarters by the stewards to prevent them from rushing the lifeboats. It has never been confirmed whether this was true or not.</p>
+                        <p>Mr. Gatti had a cabin on C Deck. The Restaurant Staff was located on E Deck near the 2nd Class Staircase.</p>
+                    </div>
+                </div>
+            {% endif %}
+            {% if passenger.class_dept == "Engineering Crew" or passenger.class_dept == "Engineering Crew Substitute Crew" %}
+                <div class="col text-center" style="border: 1px solid #e3e3e3; border-radius:5px">
+                    <h3>Engineering Crew</h3>
+                    <img src="/static/img/Crew/engineers.jpg" alt="Engineers" width="100%"><br><br>
+                    <p>The engineers were responsible for keeping the engines, generators, and other mechanical equipment on the Titanic running. They were the highest paid members of the crew and had the education and technical expertise to operate, maintain, and repair the engineering plant.</p>
+                    <p>Shortly after leaving Southampton, a fire was discovered in the coal bunker of No 6 Boiler Room. For a number of days, coal trimmers were detailed to trace the source of the fire and extinguish it.</p>
+                    <p>On the night of 14 April, the Second Engineering Officer, John Henry Hesketh – the senior engineer on duty, and Leading Fireman Frederick Barrett were in No 6 Boiler inspecting the coal bunker and confirming the fire was out when the Titanic struck the iceberg at 11.40 pm. It ripped this part of the ship and the pair escaped through the connecting tunnel to No 5 Boiler Room, closing the bulkhead doors. Barrett later gave evidence at the Southampton Enquiry.</p>
+                    <p>Most of the engineering crew remained below decks in the engine and boiler rooms: some fighting a losing battle to keep the ship afloat by operating the pumps in the forward compartments as well as keeping the steam up in the boiler rooms, so as to prevent boiler explosion on contact with the water; and others keeping the generators running to maintain power and lights throughout the Titanic up until two minutes before the ship sank. It is speculated that their actions delayed the sinking for over an hour and helped keep the ship afloat long enough for nearly all the lifeboats to be launched. Some of the men working downstairs were killed when seawater flooded this section as the ship hit the iceberg</p>
+                </div>
+                <div class="col" style="border: 1px solid #e3e3e3; border-radius:5px">
+                    <div class="engineer_distictions">
+                        <h3 style="text-align: center;">Engineering Crew Distictions:</h3>
+                        <ol>
+                            <li>25 engineers  as well as eight electricians and two boilermakers; all were lost.</li><br>
+                            <li>163 firemen and 13 leading firemen:  The ship had 29 boilers, each containing three furnaces for a total of 159 furnaces. Each fireman was assigned one boiler and three furnaces. Of the Titanic's six boiler rooms, each leading fireman was assigned to two of them with 10 to 15 firemen under him. Next to each boiler was a coal chute that deposited coal from the overhead coal bunkers, and a fireman with a shovel would constantly feed coal into the three furnaces. Shifts for all the firemen and their foremen were four hours on and eight hours off. The heat in the boiler rooms usually exceeded 120 °F (49 °C), so a four-hour shift was very demanding. Most of the firemen worked wearing only their undershirts and shorts. Of the firemen, only three leading firemen and around 45 other firemen survived. Several of the firemen who survived got into the lifeboats dressed only in their undershirts and shorts in 28 °F (−2 °C) weather.</li><br>
+                            <li>73 trimmers:  Of the engineering crew, the trimmers were paid the least and had probably the worst job of the crew. The trimmers worked inside the coal bunkers located on top of and between the boilers. The trimmers used shovels and wheelbarrows to move coal around the bunker to keep the coal level, and to shovel the coal down the coal chute to the firemen below to shovel it into the furnaces. If too much coal built up on one side of a coal bunker, the ship would actually list to that side. All the residual heat from the boilers rose up into the coal bunkers, and inside, the bunkers were poorly lit, full of coal dust, and extremely hot from the boilers. Around 20 of them survived.
+                            </li><br>
+                            <li>33 greasers:  These men worked in the turbine and reciprocating engine rooms alongside the engineers and they were responsible for maintaining and supplying oil and lubricants for all the mechanical equipment. Only four of them survived.</li><br>
+                            <li>6 mess hall stewards:  These men worked in the crew's kitchen to cook and serve food for the crew: four served the engineering crew; two served the deck crew. Just one steward from engineering survived.
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            {% endif %}
+            {% if passenger.class_dept == "1st Class Passenger H&W Guarantee Group" or passenger.class_dept == "2nd Class Passenger H&W Guarantee Group" %}
+                <div class="col text-center" style="border: 1px solid #e3e3e3; border-radius:5px">
+                    <h3>Thomas Andrews, The Head of the H&W Guarantee Group</h3>
+                    <img src="/static/img/guarantee_group/Thomas_Andrews.jpg" 
+                    alt="Thomas_Andrews_Head_of_H&W_Guarantee_Group" width="100%"><br>
+                    <small>Thomas Andrews, the shipbuilder and head of the Harland and Wolf Guarantee Group</small>
+                </div>
+                <div class="col text-center" style="border: 1px solid #e3e3e3; border-radius:5px">
+                    <h3>The H&W Guarantee Group</h3>
+                    <p>Though the nine-member guarantee group were given passenger accommodation, they were also regarded as members of the crew. Headed by the ship's designer, Thomas Andrews, the group's responsibility was to accompany the ship on her maiden voyage to oversee any unfinished work or find and fix any problems that might arise during the voyage. The entire group perished; none of their bodies were recovered.</p>
+                </div>
+            {% endif %}
+            {% if passenger.class_dept == "2nd Class Passenger Musician" %}
+                <div class="col text-center" style="border: 1px solid #e3e3e3; border-radius:5px">
+                    <h3>The Band That Played On</h3>
+                    <img src="/static/img/musicians/musicians.jpeg" alt="Musicians" width="100%"><br><br>
+                    <p><strong>Top:</strong> Mr. John Frederick Preston Clarke | Mr. Percy Cornelius Taylor</p>
+                    <p><strong>Middle:</strong> Mr. Georges Alexandre Krins | Mr. Wallace Henry Harley | My. W. Theodore Ronald Brailey</p>
+                    <p><strong>Bottom:</strong> Mr. John Law "Jock" Hume | Mr. John Wesley Woodward</p>
+                    <p><strong>Not Pictured:</strong> Mr. Roger Maries Bricoux</p>
+                </div>
+                <div class="col text-center" style="border: 1px solid #e3e3e3; border-radius:5px">
+                    <h3>Titanic's Orchestra</h3>
+                    <p>The Musicians of the RMS Titanic all perished with the ship when it sank in 1912. They played music, intending to calm the passengers, for as long as they possibly could and all went down with the ship. All were recognized for their heroism.</p>
+                    <p>The ship's eight-member orchestra boarded at Southampton and travelled as second-class passengers. They were not on the payroll of the White Star Line, but were contracted to White Star by the Liverpool firm of C.W. & F.N. Black, who placed musicians on almost all British liners. Until the night of the sinking, the orchestra performed as two separate entities: a quintet led by violinist and official bandleader Wallace Hartley, that played at teatime, after-dinner concerts, and Sunday services, among other occasions; and the violin, cello and piano trio of Roger Bricoux, George Krins and Theodore Brailey, that played at the À La Carte Restaurant and the Café Parisien.</p>
+                </div>
+            {% endif %}
+            {% if passenger.class_dept == "Deck Crew" %}
+                <div class="col" style="border: 1px solid #e3e3e3; border-radius:5px">
+                    <h3>Deck Crew Distictions</h3>
+                    <ol>
+                        <li>Boatswain (bosun) or one able officer, who had seniority over all the unlicensed deck crew. The able officer, an experienced crewman of the White Star Line, assisted Thomas Andrews in his daily inspections around the ship.</li><br>
+                        <li>Seamen who had completed additional training and usually had seniority over other crew members. They carried out the day-to-day operations of the ship. In addition, they were trained to operate the lifeboat davits and man the lifeboats themselves. Each able seaman was assigned to a lifeboat and take charge of that boat if no officer were present. About eight of these men were lost when they went below decks to open the E Deck gangway and were never seen again. As almost all the remaining able seamen had departed in the first lifeboats launched, the lifeboats launched subsequently had a shortage of trained seamen to man them.</li><br>
+                        <li>Boatswain Mates,  experienced seamen who managed the deck lines, deck cranes, winches, lifeboat davits, etc. on the deck</li><br>
+                        <li>Master-At-Arms,  who, along with the Chief Officer, held the only keys to the firearms cabinet. They kept order on the ship</li><br>
+                        <li>Quartermasters:  highly trained seamen who worked on and around the bridge to steer the ship as helmsmen, manage signal flags, and stand watch on the bridge to assist the Duty Officer with general navigation. All seven of them survived.</li><br>
+                        <li>Window cleaners: They cleaned windows on the ship...however it’s unknown how they did it</li><br>
+                        <li>Lookouts:  who worked two to a shift in the crow's nest; the shifts lasted only two hours at a time because of extremely cold winds which lookouts were exposed to in the open crow's nest. The lookouts were normally supplied with binoculars to aid them in seeing over long distances but on the Titanic's maiden voyage binoculars were unavailable due to their being locked away, and the key necessary to retrieve them was not on board. With the air temperature at 28 °F (−2 °C), and a 20-mile-per-hour (32 km/h) headwind, it is a matter of speculation as to how reliable the binoculars would have been if they had been</li>
+                    </ol>
+                </div>
+            {% endif %}
+            {% if passenger.class_dept == "Deck Crew Titanic Officers" %}
+                <div class="col text-center" style="border: 1px solid #e3e3e3; border-radius:5px">
+                    <h3>Titanic's Officer</h3>
+                    <img src="/static/img/officers/officers.jpg" alt="Musicians" width="100%"><br><br>
+                    <small>Please note this photo does not contain all of Titanic's officers. This photo was said to be taken on Titanic's sister ship, "The Olympic"</small>
+                </div>
+                <div class="col text-center" style="border: 1px solid #e3e3e3; border-radius:5px">
+                    <h3>Titanic's Officers Status and Jobs</h3>
+                    <ol>
+                        <li><strong>Captain Edward John Smith:</strong> Incharge of the safe navigation of the vessel. Overall in charge of all aspects of the ship. Was last seen walking to the bridge before the forward funnel collapsed. Perished in the sinking.</li><br>
+                        <li><strong>Chief Officer Henry Tingle Wilde:</strong> Was second in command. He was the Captains right hand man. Incharge of all of the officers. When Titanic was sinking was In Charge of over seeing the lifeboats being launched. Perished in sinking.</li><br>
+                        <li><strong>First Officer William McMaster Murdoch:</strong> Second in command. Senior Watch Officer. Murdoch was on watch when Titanic hit the iceberg. Was in charge of lowering the Starboard Side lifeboats. Perished in the sinking. Was last seen by Second Officer Lightoller starboard side attempting to free the last collapsible.</li><br>
+                        <li><strong>Second Officer Charles Herbert Lightoller:</strong> Third in command. Senior Watch Officer. Was in charge of lowering the Port Side Lifeboats. He swam to the over turned collapsible he was attempting to right. He along with 30 others straddled the lifeboat for over 2 hours. Survived the sinking and continued to work for White Star Line until WW1 when he gained a command in the Royal Navy. </li><br>
+                        <li><strong>Third Officer Herbert Pitman:</strong> Junior Watch Officer. In charge of loading passengers and cargo. Placed In Charge of Lifeboat Number 5 by First Officer Murdoch. Survived sinking. Continued with White Star Line until his eyes removed him from the deck department and he continued to work as a purser.</li><br>
+                        <li><strong>Fourth Officer Joesph Boxhall:</strong> Junior Watch Officer. Navigator. On watch when Titanic hit the iceberg. Placed in charge of Lifeboat Number 2 by Captain Smith. Survived the sinking. He also received a command in the Royal Navy. He was technical advisor to the movie "A Night to Remember".</li><br>
+                        <li><strong></strong>Junior Watch Officer. Placed in charge of Lifeboat 14 by Second Officer Lightoller. Attempted to go and look for survivors after Titanic sank. Lowe got a command in the Royal Navy and then retired from the sea.</li><br>
+                        <li><strong>Sixth Officer James Moody: </strong>Junior Watch Officer. On watch when Titanic struck the iceberg. Sixth Officer Moody was last seen with Murdoch attempting to free the last collapsibles.</li>
+                    </ol>
+                </div>
             {% endif %}
         </div>
     </div>
-</head>
 </body>
 </html>
